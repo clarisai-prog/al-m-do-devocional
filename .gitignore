@@ -1,0 +1,57 @@
+# Arquivos e pastas a ignorar no Git
+
+# Variáveis de ambiente
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+
+# Dependencies (se usar Node.js no futuro)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build outputs
+dist/
+build/
+out/
+
+# IDE configs (opcional, você pode remover se quiser versioná-los)
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos de backup e temporários
+*.bak
+*.backup
+*.tmp
+*.temp
+*~
+
+# Caches
+.cache/
+*.cache
+
+# Arquivos "v1", "v2", "old" (versões antigas)
+*-v1.*
+*-v2.*
+*-v3.*
+*-old.*
+*-backup.*
+*-temp.*
+
+# Secrets
+secrets/
+private/
+config/secrets*

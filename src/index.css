@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-garamond: "Cormorant Garamond", serif;
+
+  --color-spiritual-dark: #1a160d;
+  --color-spiritual-charcoal: #1a1a1a;
+  --color-gold: #cfaa6c;
+  --color-gold-light: #e5c992;
+  --color-gold-dim: #b89e72;
+}
+
+@layer base {
+  body {
+    @apply bg-spiritual-dark text-slate-200 antialiased overflow-hidden;
+    height: 100dvh;
+    width: 100vw;
+  }
+}
+
+@layer utilities {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+  .min-h-dvh {
+    min-height: 100dvh;
+  }
+  .h-dvh {
+    height: 100dvh;
+  }
+}
+
+.glass-panel {
+  background: rgba(34, 30, 16, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(207, 170, 108, 0.15);
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(207, 170, 108, 0.3);
+}
+
+.scroll-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
