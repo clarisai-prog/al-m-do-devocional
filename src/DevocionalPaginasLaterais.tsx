@@ -6,6 +6,7 @@ interface Pagina {
   titulo: string;
   sub: string;
   conteudo: string;
+  videoUrl?: string;
 }
 
 interface DevocionalPaginasLateraisProps {
@@ -28,19 +29,22 @@ export default function DevocionalPaginasLaterais({
       id: 1, 
       titulo: "Prudência e Justiça", 
       sub: "A Ordem da Vida",
-      conteudo: "Este guia existe para te arrancar da 'leitura passiva' e do perigo da espiritualidade moderna: o perfeccionismo que te trata como uma máquina de produtividade e não como um filho amado."
+      conteudo: "Este guia existe para te arrancar da 'leitura passiva' e do perigo da espiritualidade moderna: o perfeccionismo que te trata como uma máquina de produtividade e não como um filho amado.",
+      videoUrl: "/videos/video-1.mp4"
     },
     { 
       id: 2, 
       titulo: "Fortaleza", 
       sub: "A Ciência de Levantar",
-      conteudo: "A Palavra de Deus é viva e eficaz. Ler um livro é buscar informação; ler a Bíblia é escutar uma Pessoa. Siga a escada milenar de 4 passos para aprofundar sua vida de oração."
+      conteudo: "A Palavra de Deus é viva e eficaz. Ler um livro é buscar informação; ler a Bíblia é escutar uma Pessoa. Siga a escada milenar de 4 passos para aprofundar sua vida de oração.",
+      videoUrl: "/videos/video-2.mp4"
     },
     { 
       id: 3, 
       titulo: "Temperança", 
       sub: "O Domínio do Conforto",
-      conteudo: "Ficar em paz. Repouse no silêncio de saber que Deus te acolhe, sem precisar dizer mais nada. Apenas esteja presente."
+      conteudo: "Ficar em paz. Repouse no silêncio de saber que Deus te acolhe, sem precisar dizer mais nada. Apenas esteja presente.",
+      videoUrl: "/videos/video-3.mp4"
     }
   ];
 
@@ -141,21 +145,34 @@ export default function DevocionalPaginasLaterais({
             role="region"
             aria-label={`Página de ${pagina.titulo}`}
           >
-            {/* 🎬 Player de Vídeo da Página */}
-            <div className="w-full aspect-video bg-gradient-to-br from-gold/20 to-slate-800 relative flex items-center justify-center mb-6 shadow-xl rounded-2xl mx-auto max-w-2xl">
-              <button 
-                onClick={() => setIsPlaying(!isPlaying)}
-                aria-label={`${isPlaying ? 'Pausar' : 'Reproduzir'} vídeo: ${pagina.titulo}`}
-                aria-pressed={isPlaying}
-                className="min-h-[56px] min-w-[56px] bg-gold hover:bg-gold-light text-spiritual-dark rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-all focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-spiritual-dark focus-visible:ring-gold"
+            {/* 🎬 Player de Vídeo Real */}
+            {pagina.videoUrl && (
+              <video
+                key={`video-${pagina.id}`}
+                controls
+                className="w-full aspect-video bg-black rounded-2xl shadow-xl mx-auto max-w-2xl mb-6"
+                aria-label={`Vídeo: ${pagina.titulo}`}
               >
-                <Play 
-                  size={24} 
-                  className="fill-current ml-1" 
-                  aria-hidden="true"
-                />
-              </button>
-            </div>
+                <source src={pagina.videoUrl} type="video/mp4" />
+                Seu navegador não suporta vídeos HTML5
+              </video>
+            )}
+            {!pagina.videoUrl && (
+              <div className="w-full aspect-video bg-gradient-to-br from-gold/20 to-slate-800 relative flex items-center justify-center mb-6 shadow-xl rounded-2xl mx-auto max-w-2xl">
+                <button 
+                  onClick={() => setIsPlaying(!isPlaying)}
+                  aria-label={`${isPlaying ? 'Pausar' : 'Reproduzir'} vídeo: ${pagina.titulo}`}
+                  aria-pressed={isPlaying}
+                  className="min-h-[56px] min-w-[56px] bg-gold hover:bg-gold-light text-spiritual-dark rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-all focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-spiritual-dark focus-visible:ring-gold"
+                >
+                  <Play 
+                    size={24} 
+                    className="fill-current ml-1" 
+                    aria-hidden="true"
+                  />
+                </button>
+              </div>
+            )}
 
             {/* 📖 Textos da Página */}
             <article className="px-6 max-w-2xl mx-auto">
