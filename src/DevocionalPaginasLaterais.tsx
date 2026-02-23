@@ -118,7 +118,7 @@ export default function DevocionalPaginasLaterais({
             aria-hidden="true"
           >
             <div 
-              className={`h-full bg-gold transition-all duration-500 ease-out ${index <= paginaAtual ? 'w-full' : 'w-0'}`}
+              className={`h-full bg-gold transition-all duration-700 ease-out ${index <= paginaAtual ? 'w-full' : 'w-0'}`}
             />
           </div>
         ))}
@@ -126,7 +126,7 @@ export default function DevocionalPaginasLaterais({
 
       {/* 🔀 CONTAINER DE NAVEGAÇÃO LATERAL */}
       <div 
-        className="flex w-full h-full transition-transform duration-500 ease-in-out"
+        className="flex w-full h-full transition-all duration-700 ease-in-out"
         style={{ transform: `translateX(-${paginaAtual * 100}%)` }}
       >
         {paginas.map((pagina, index) => (

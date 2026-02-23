@@ -514,38 +514,19 @@ function CompletionScreen({ onRestart, onContinue }: { onRestart: () => void, on
               </button>
             </div>
           </div>
-
-          {/* Next Lesson Button */}
-          {onContinue && (
-            <button
-              onClick={onContinue}
-              className="glass-panel rounded-2xl p-6 flex items-center justify-between group active:scale-[0.98] transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-spiritual-dark"
-              aria-label="Ir para próxima aula"
-            >
-              <div className="flex flex-col gap-1">
-                <h3 className="text-white font-semibold text-lg font-serif">Próxima Aula</h3>
-                <p className="text-gold text-[10px] font-bold tracking-widest uppercase flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-gold inline-block" />
-                  Continue Sua Jornada
-                </p>
-              </div>
-              <div className="w-12 h-12 rounded-full bg-gold text-spiritual-dark flex items-center justify-center shadow-lg group-hover:bg-gold-light transition-colors">
-                <ArrowRight size={20} aria-hidden="true" />
-              </div>
-            </button>
-          )}
         </section>
       </div>
 
-      {/* Navigation Bar */}
-      <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-50 pb-safe">
-        <div className="absolute inset-0 bg-spiritual-dark/90 backdrop-blur-xl border-t border-white/5" />
-        <div className="relative flex justify-between items-center px-12 pb-8 pt-4">
-          <NavItem icon={<Home size={22} />} label="Início" onClick={onRestart} />
-          <NavItem icon={<BookOpen size={22} />} label="Estudos" active onClick={() => {}} />
-          <NavItem icon={<Store size={22} />} label="Livraria" onClick={() => alert('Livraria em breve!')} />
-        </div>
-      </nav>
+      {/* Simple Close Button */}
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 w-full max-w-md px-6 z-50">
+        <button
+          onClick={onRestart}
+          className="w-full py-4 rounded-xl bg-gold text-spiritual-dark font-bold uppercase tracking-widest text-xs shadow-[0_4px_20px_rgba(207,170,108,0.3)] hover:bg-gold-light transition-all active:scale-95"
+          aria-label="Voltar ao início"
+        >
+          Voltar ao Início
+        </button>
+      </div>
     </div>
   );
 }
