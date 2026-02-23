@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import { ArrowRight, CheckCircle, Download } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface CoverScreenEspiritualProps {
   onStart: () => void;
-  onChecklist?: () => void;
-  onWallpapers?: () => void;
   titulo?: string;
   subtitulo?: string;
   descricao?: string;
@@ -12,8 +10,6 @@ interface CoverScreenEspiritualProps {
 
 export default function CoverScreenEspiritual({
   onStart,
-  onChecklist,
-  onWallpapers,
   titulo = "Ambiente Espiritual",
   subtitulo = "Arrume a Casa para Deus Entrar",
   descricao = "Um programa prático de 5 etapas para transformar seu espaço e sua rotina em um santuário de oração."
@@ -21,7 +17,7 @@ export default function CoverScreenEspiritual({
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <div className="relative h-dvh w-full overflow-hidden bg-gradient-to-b from-[#2a2a4a] via-[#1f1b2a] to-[#0f0f1a] flex flex-col justify-between pt-safe px-6 pb-safe">
+    <div className="relative h-dvh w-full overflow-hidden bg-gradient-to-b from-[#2a2a4a] via-[#1f1b2a] to-[#0f0f1a] flex flex-col justify-center items-center px-6 py-12">
       
       {/* 🌟 Efeito de Partículas Estreladas */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -46,18 +42,18 @@ export default function CoverScreenEspiritual({
       </div>
 
       {/* 📍 Conteúdo Principal */}
-      <div className="relative z-10 flex flex-col items-center text-center flex-1 justify-center max-w-2xl mx-auto">
+      <div className="relative z-10 flex flex-col items-center text-center max-w-2xl mx-auto">
         
         {/* ✨ Símbolo Decorativo V */}
         <div 
-          className="mb-8 animate-fade-in"
+          className="mb-6 animate-fade-in"
           aria-hidden="true"
         >
           <div className="relative">
             <div className="absolute inset-0 bg-gold/20 rounded-full blur-2xl"></div>
-            <div className="relative w-16 h-16 border-2 border-gold/40 rounded-full flex items-center justify-center">
+            <div className="relative w-14 h-14 border-2 border-gold/40 rounded-full flex items-center justify-center">
               <svg 
-                className="w-8 h-8 text-gold" 
+                className="w-7 h-7 text-gold" 
                 viewBox="0 0 24 24" 
                 fill="none" 
                 stroke="currentColor" 
@@ -71,7 +67,7 @@ export default function CoverScreenEspiritual({
 
         {/* 📋 Rótulo GUIA DE ESTUDO */}
         <p 
-          className="text-[10px] tracking-[0.35em] text-gold/60 uppercase font-semibold mb-6 animate-fade-in"
+          className="text-[10px] tracking-[0.35em] text-gold/60 uppercase font-semibold mb-4 animate-fade-in"
           style={{ animationDelay: '0.1s' }}
         >
           Guia de Estudo
@@ -79,7 +75,7 @@ export default function CoverScreenEspiritual({
 
         {/* 🎯 Título Principal */}
         <h1 
-          className="text-5xl md:text-7xl font-serif text-white font-light tracking-tight mb-3 animate-fade-in leading-tight"
+          className="text-4xl md:text-6xl font-serif text-white font-light tracking-tight mb-3 animate-fade-in leading-tight"
           style={{ animationDelay: '0.2s' }}
         >
           {titulo}
@@ -87,7 +83,7 @@ export default function CoverScreenEspiritual({
 
         {/* ✍️ Subtítulo em Itálico */}
         <p 
-          className="text-xl md:text-2xl font-serif italic text-gold/80 mb-6 animate-fade-in"
+          className="text-lg md:text-xl font-serif italic text-gold/80 mb-4 animate-fade-in"
           style={{ animationDelay: '0.3s' }}
         >
           {subtitulo}
@@ -95,23 +91,20 @@ export default function CoverScreenEspiritual({
 
         {/* 📝 Descrição */}
         <p 
-          className="text-base md:text-lg text-slate-300 leading-relaxed max-w-sm animate-fade-in font-light"
+          className="text-sm md:text-base text-slate-300 leading-relaxed max-w-md animate-fade-in font-light mb-8"
           style={{ animationDelay: '0.4s' }}
         >
           {descricao}
         </p>
-      </div>
 
-      {/* 🎮 Botões de Ação */}
-      <div className="relative z-10 w-full max-w-sm mx-auto space-y-4 animate-fade-in" style={{ animationDelay: '0.5s' }}>
-        
-        {/* Botão Principal - Iniciar */}
+        {/* 🎮 Botão Principal - Iniciar */}
         <button
           onClick={onStart}
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
           aria-label="Iniciar tutorial guiado do Ambiente Espiritual"
-          className="w-full group relative overflow-hidden rounded-full py-4 px-6 font-semibold text-sm uppercase tracking-wide transition-all duration-300 active:scale-95 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f1b2a] focus-visible:ring-gold min-h-[56px]"
+          className="group relative overflow-hidden rounded-full py-4 px-8 font-semibold text-sm uppercase tracking-wide transition-all duration-300 active:scale-95 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1f1b2a] focus-visible:ring-gold min-h-[56px] animate-fade-in"
+          style={{ animationDelay: '0.5s' }}
         >
           {/* Background animado */}
           <div className="absolute inset-0 bg-gradient-to-r from-gold to-yellow-500 transition-transform duration-300"></div>
@@ -122,7 +115,7 @@ export default function CoverScreenEspiritual({
           
           {/* Conteúdo */}
           <div className="relative flex items-center justify-center gap-3 text-[#1f1b2a]">
-            <span>Iniciar Tutorial</span>
+            <span>Iniciar</span>
             <ArrowRight 
               size={20} 
               aria-hidden="true"
@@ -131,33 +124,6 @@ export default function CoverScreenEspiritual({
             />
           </div>
         </button>
-
-        {/* Botões Secundários */}
-        <div className="flex gap-3 w-full pt-2">
-          {/* Botão Checklist */}
-          <button
-            onClick={onChecklist}
-            aria-label="Ver checklist do programa"
-            className="flex-1 min-h-[48px] px-4 py-3 rounded-full border border-gold/40 text-gold/80 hover:text-gold hover:border-gold transition-all duration-300 active:scale-95 focus-visible:ring-2 focus-visible:ring-gold text-sm font-medium"
-          >
-            <div className="flex items-center justify-center gap-2">
-              <CheckCircle size={18} aria-hidden="true" />
-              <span>Checklist</span>
-            </div>
-          </button>
-
-          {/* Botão Wallpapers */}
-          <button
-            onClick={onWallpapers}
-            aria-label="Baixar wallpapers para personalizar seu espaço"
-            className="flex-1 min-h-[48px] px-4 py-3 rounded-full border border-gold/40 text-gold/80 hover:text-gold hover:border-gold transition-all duration-300 active:scale-95 focus-visible:ring-2 focus-visible:ring-gold text-sm font-medium"
-          >
-            <div className="flex items-center justify-center gap-2">
-              <Download size={18} aria-hidden="true" />
-              <span>Wallpapers</span>
-            </div>
-          </button>
-        </div>
       </div>
 
       {/* 🎨 CSS para Animações Customizadas */}

@@ -114,8 +114,6 @@ export default function App() {
             <motion.div key="welcome" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="h-full">
               <CoverScreenEspiritual
                 onStart={handleWelcomeStart}
-                onChecklist={() => setScreen('sidebar')}
-                onWallpapers={() => alert('Wallpapers em desenvolvimento')}
                 titulo="Além do Devocional"
                 subtitulo="Aprofundamento Prático"
                 descricao="Uma jornada transformadora através dos 4 Degraus da Lectio Divina"
