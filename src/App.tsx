@@ -125,7 +125,7 @@ export default function App() {
           {screen === 'sidebar' && (
             <motion.div key="sidebar" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="h-full">
               <DevocionalPaginasLaterais
-                onConcluir={() => setScreen('lesson')}
+                onConcluir={handleLessonComplete}
               />
             </motion.div>
           )}
