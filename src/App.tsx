@@ -255,7 +255,17 @@ function LessonScreen({ onFinish, onBack }: { onFinish: () => void, onBack: () =
   const [isBookmarked, setIsBookmarked] = React.useState(false);
 
   return (
-    <div className="flex flex-col h-dvh bg-spiritual-charcoal">
+    <div className="flex flex-col h-dvh bg-spiritual-charcoal relative">
+      
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/alemdodevocional/capa-inicial.png" 
+          alt="Background" 
+          className="w-full h-full object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-spiritual-charcoal/90 via-spiritual-charcoal/80 to-spiritual-charcoal/95"></div>
+      </div>
 
       {/* Video Header */}
       <div className="relative w-full aspect-video bg-black shadow-lg z-40">
@@ -426,31 +436,31 @@ function CompletionScreen({ onRestart, onContinue }: { onRestart: () => void, on
         </button>
       </header>
 
-      <div className="flex-1 overflow-y-auto scroll-hide pb-32 relative z-10">
-        <section className="px-6 pt-4 pb-12 flex flex-col items-center text-center">
+      <div className="flex-1 overflow-hidden relative z-10">
+        <section className="px-6 pt-2 pb-6 flex flex-col items-center text-center">
           <motion.div 
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: 'spring', damping: 12 }}
-            className="mb-8 relative"
+            className="mb-4 relative"
           >
-            <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center border border-gold/20 shadow-[0_0_15px_rgba(207,170,108,0.2)]">
-              <Check className="text-gold" size={32} />
+            <div className="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center border border-gold/20 shadow-[0_0_15px_rgba(207,170,108,0.2)]">
+              <Check className="text-gold" size={28} />
             </div>
           </motion.div>
           
-          <span className="text-gold/80 uppercase tracking-[0.3em] text-[10px] font-bold mb-4">Aula Concluída</span>
+          <span className="text-gold/80 uppercase tracking-[0.3em] text-[10px] font-bold mb-2">Aula Concluída</span>
           
-          <h1 className="font-serif text-4xl text-white font-medium italic leading-tight mb-4 text-glow">
+          <h1 className="font-serif text-3xl text-white font-medium italic leading-tight mb-2 text-glow">
             Obrigado por <br/> <span className="text-gold not-italic">ir além</span>
           </h1>
           
-          <p className="text-slate-200 text-base md:text-lg leading-relaxed max-w-xs font-light mx-auto">
-            Sua jornada de aprofundamento continua. O conhecimento é apenas o começo da transformação.
+          <p className="text-slate-200 text-sm leading-relaxed max-w-xs font-light mx-auto">
+            Sua jornada de aprofundamento continua.
           </p>
         </section>
 
-        <section className="px-6 space-y-6">
+        <section className="px-6 space-y-4">
           {/* Download Card */}
           <div 
             onClick={() => {
@@ -486,7 +496,7 @@ function CompletionScreen({ onRestart, onContinue }: { onRestart: () => void, on
           </div>
 
           {/* Bookstore Card */}
-          <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden group shadow-2xl">
+          <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden group shadow-2xl">
             <img 
               src={IMAGES.BOOKSTORE_BG} 
               alt="Bookstore" 
@@ -495,20 +505,20 @@ function CompletionScreen({ onRestart, onContinue }: { onRestart: () => void, on
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90" />
             
-            <div className="absolute inset-0 p-8 flex flex-col justify-end items-start z-10">
-              <div className="mb-6">
-                <span className="bg-gold/20 text-gold border border-gold/30 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4 inline-block">
+            <div className="absolute inset-0 p-5 flex flex-col justify-end items-start z-10">
+              <div className="mb-3">
+                <span className="bg-gold/20 text-gold border border-gold/30 backdrop-blur-sm px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-widest mb-2 inline-block">
                   Recomendado
                 </span>
-                <h2 className="text-3xl font-serif text-white italic mb-2">Explore nossa Livraria</h2>
-                <p className="text-slate-200 text-base leading-relaxed line-clamp-2 font-light">
-                  Descubra obras selecionadas para aprofundar sua fé e conhecimento teológico.
+                <h2 className="text-xl font-serif text-white italic mb-1">Explore nossa Livraria</h2>
+                <p className="text-slate-200 text-xs leading-relaxed line-clamp-1 font-light">
+                  Obras selecionadas para aprofundar sua fé.
                 </p>
               </div>
               
-              <button className="w-full bg-gold hover:bg-gold-light text-spiritual-dark font-bold text-sm py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-all active:scale-95 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-spiritual-dark focus-visible:ring-gold" aria-label="Explorar livraria de obras teológicas selecionadas">
+              <button className="w-full bg-gold hover:bg-gold-light text-spiritual-dark font-bold text-xs py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-all active:scale-95 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-spiritual-dark focus-visible:ring-gold" aria-label="Explorar livraria de obras teológicas selecionadas">
                 <span>Ver Coleção</span>
-                <ArrowRight size={16} aria-hidden="true" />
+                <ArrowRight size={14} aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -516,10 +526,10 @@ function CompletionScreen({ onRestart, onContinue }: { onRestart: () => void, on
       </div>
 
       {/* Simple Close Button */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 w-full max-w-md px-6 z-50">
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-full max-w-md px-6 z-50">
         <button
           onClick={onRestart}
-          className="w-full py-4 rounded-xl bg-gold text-spiritual-dark font-bold uppercase tracking-widest text-xs shadow-[0_4px_20px_rgba(207,170,108,0.3)] hover:bg-gold-light transition-all active:scale-95"
+          className="w-full py-3.5 rounded-xl bg-gold text-spiritual-dark font-bold uppercase tracking-widest text-xs shadow-[0_4px_20px_rgba(207,170,108,0.3)] hover:bg-gold-light transition-all active:scale-95"
           aria-label="Voltar ao início"
         >
           Voltar ao Início
